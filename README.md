@@ -42,3 +42,16 @@ https://code.visualstudio.com/docs/azure/docker
 #### streetsidesoftware.code-spell-checker
 Spell checking inside code and comments
 https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/42898923/214874043-5ed49ad8-04da-497f-bac7-362dfcead12e.png)
+
+![image](https://user-images.githubusercontent.com/42898923/214873807-acea119e-9aae-45d0-bde3-9f704ba0174c.png)
+
+![image](https://user-images.githubusercontent.com/42898923/214873913-e63ca5ba-2d66-4466-9652-e23d603a61b7.png)
+
+![image](https://user-images.githubusercontent.com/42898923/214873972-73efeb53-8451-44dd-8926-e298a1b6c07c.png)
+
+
+
