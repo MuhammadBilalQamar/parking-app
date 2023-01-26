@@ -7,5 +7,4 @@ router.post("/register", AuthController.CreateRegister);
 // LOGIN USER
 router.post("/login", AuthController.Login);
 
-
 export default router;

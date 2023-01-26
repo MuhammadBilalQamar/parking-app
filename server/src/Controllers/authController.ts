@@ -2,12 +2,11 @@ import { Request, Response, NextFunction } from "express";
 import AuthModel from "../Models/Auth";
 import { IAuth } from "../Types/IAuth";
 import { AuthValidation } from "../Validations/AuthValidation";
-
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-dotenv.config();
 
-import bcrypt from "bcrypt";
+dotenv.config();
 
 const CreateRegister = async (
   req: Request,
@@ -36,8 +35,7 @@ const CreateRegister = async (
             message: "User already exists.",
           })
         );
-      }
-      else {
+      } else {
         // add user to register collection
         const newRegister = await addRegister(registerModelValidation);
         if (newRegister) {

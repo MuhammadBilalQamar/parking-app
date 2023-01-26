@@ -38,6 +38,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function ViewBookings() {
   const [rows, setRows] = useState([]);
   const path = window.location.pathname;
+  
   useEffect(() => {
     fetchBooking();
   }, []);

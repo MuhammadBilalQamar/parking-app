@@ -1,5 +1,5 @@
 //@ts-ignore
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-
   bullet: {
     display: "inline-block",
     margin: "0 2px",
@@ -53,7 +52,7 @@ export default function ViewParkings() {
     setSelectedArea(area);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setParkingSpots([]);
     fetchBooking();
   }, []);

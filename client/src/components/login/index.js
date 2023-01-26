@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [usernameErrorText, setUsernameErrorText] = React.useState("");
-  const [passwordErrorText, setPasswordErrorText] = React.useState("");
-  const [errorText, setErrorText] = React.useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [usernameErrorText, setUsernameErrorText] = useState("");
+  const [passwordErrorText, setPasswordErrorText] = useState("");
+  const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -60,7 +60,7 @@ export default function Login() {
         username: username,
         password: password,
       };
-      // login
+      // login api call
       axios
         .post("/auth/login", body)
         .then((response) => {

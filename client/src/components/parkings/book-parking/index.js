@@ -13,11 +13,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "components";
 import axios from "./../../../services/axios";
+
 const useStyles = makeStyles((theme) => ({
   form: {
     marginTop: theme.spacing(8),
   },
-
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -36,8 +36,9 @@ export default function BookParking() {
     new Date().toISOString().slice(0, -5)
   );
   const [timeTo, setTimeTo] = useState(new Date().toISOString().slice(0, -5));
-  const [errorText, setErrorText] = React.useState("");
+  const [errorText, setErrorText] = useState("");
   const path = window.location.pathname;
+
   const areas = ["Area 1", "Area 2", "Area 3"];
   const spots = [
     "Spot 1",
@@ -86,13 +87,10 @@ export default function BookParking() {
     axios
       .post("/booking", body)
       .then((response) => {
-        console.log("Success:", response.data);
         navigate("/view-parking");
       })
       .catch((error) => {
-        console.log("error", error.response.data);
         setErrorText(error.response.data.message);
-        console.error("Error:", error);
       });
   };
 

@@ -11,21 +11,8 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
+import { pages } from "../../utils/constants";
 
-const pages = [
-  {
-    name: "View Parking",
-    href: "/view-parking",
-  },
-  {
-    name: "Book Parking",
-    href: "/book-parking",
-  },
-  {
-    name: "View Bookings",
-    href: "/view-bookings",
-  },
-];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import BookingsModel from "../Models/Bookings";
-
 import { IBookings } from "../Types/IBookings";
 import { BookingsValidation } from "../Validations/BookingsValidation";
 
@@ -20,27 +19,28 @@ const CreateBookings = async (
         })
       );
     } else {
-      const checkBooking = await BookingsModel.findOne({ spot: bookingsModelValidation.spot, 
+      const checkBooking = await BookingsModel.findOne({
+        spot: bookingsModelValidation.spot,
         $or: [
           {
             $and: [
               { time_from: { $lte: bookingsModelValidation.time_from } },
-              { time_to: { $gte: bookingsModelValidation.time_from } }
-            ]
+              { time_to: { $gte: bookingsModelValidation.time_from } },
+            ],
           },
           {
             $and: [
               { time_from: { $lte: bookingsModelValidation.time_to } },
-              { time_to: { $gte: bookingsModelValidation.time_to } }
-            ]
+              { time_to: { $gte: bookingsModelValidation.time_to } },
+            ],
           },
           {
             $and: [
               { time_from: { $gte: bookingsModelValidation.time_from } },
-              { time_to: { $lte: bookingsModelValidation.time_to } }
-            ]
-          }
-        ]
+              { time_to: { $lte: bookingsModelValidation.time_to } },
+            ],
+          },
+        ],
       });
       if (checkBooking) {
         return next(
@@ -109,7 +109,9 @@ const getAllBookings = async (
   try {
     // @ts-ignore
     const bookings = await BookingsModel.find()
-      .select("_id area spot time_from time_to date_from date_to user createdAt updatedAt")
+      .select(
+        "_id area spot time_from time_to date_from date_to user createdAt updatedAt"
+      )
       .populate("user", "username name");
 
     if (bookings) {
@@ -148,7 +150,9 @@ const getOneBooking = async (
   try {
     // @ts-ignore
     const bookings = await BookingsModel.findById(req.params.id)
-      .select("_id area spot time_from time_to date_from date_to user createdAt updatedAt")
+      .select(
+        "_id area spot time_from time_to date_from date_to user createdAt updatedAt"
+      )
       .populate("user", "username name");
 
     if (bookings) {
@@ -186,7 +190,9 @@ const getSpecUserBookings = async (
   try {
     // @ts-ignore
     const bookings = await BookingsModel.find({ user: req.user._id })
-      .select("_id area spot time_from time_to date_from date_to user  createdAt updatedAt")
+      .select(
+        "_id area spot time_from time_to date_from date_to user  createdAt updatedAt"
+      )
       .populate("user", "username name");
 
     if (bookings) {

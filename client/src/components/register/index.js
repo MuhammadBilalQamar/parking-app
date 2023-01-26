@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -35,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Register() {
   const classes = useStyles();
-  const [fullName, setFullName] = React.useState("");
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [fullNameErrorText, setFullNameErrorText] = React.useState("");
-  const [usernameErrorText, setUsernameErrorText] = React.useState("");
-  const [passwordErrorText, setPasswordErrorText] = React.useState("");
-  const [errorText, setErrorText] = React.useState("");
+  const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullNameErrorText, setFullNameErrorText] = useState("");
+  const [usernameErrorText, setUsernameErrorText] = useState("");
+  const [passwordErrorText, setPasswordErrorText] = useState("");
+  const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -67,7 +67,7 @@ export default function Register() {
         password: password,
       };
       console.log(body);
-      // register
+      // register api call
       axios
         .post("/auth/register", body)
         .then((response) => {
@@ -87,8 +87,7 @@ export default function Register() {
           Register
         </Typography>
         <form className={classes.form} onSubmit={onSubmit}>
-          {/* Full Name text Field */}
-
+          {/* Form Fields */}
           <TextField
             variant="outlined"
             margin="normal"
@@ -103,7 +102,6 @@ export default function Register() {
             error={fullNameErrorText !== ""}
             helperText={fullNameErrorText}
           />
-
           <TextField
             variant="outlined"
             margin="normal"

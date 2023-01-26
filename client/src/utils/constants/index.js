@@ -1,3 +1,18 @@
+export const pages = [
+  {
+    name: "View Parking",
+    href: "/view-parking",
+  },
+  {
+    name: "Book Parking",
+    href: "/book-parking",
+  },
+  {
+    name: "View Bookings",
+    href: "/view-bookings",
+  },
+];
+
 export const parkingSpotsData = [
   {
     id: 1,

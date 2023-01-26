@@ -1,6 +1,5 @@
 import express from "express";
 import { Request, Response, NextFunction } from "express";
-const app = express();
 import helmet from "helmet";
 import bodyParser from "body-parser";
 import connectorDb from "./Helper/Dbconnector";
@@ -9,6 +8,9 @@ import morgan from "morgan";
 import AuthRoute from "./Routes/AuthRoute";
 import BookingRoute from "./Routes/BookingsRoute";
 import cors from "cors";
+
+const app = express();
+
 dotenv.config();
 app.use(cors());
 app.use(helmet());
@@ -23,9 +25,9 @@ const server_port = process.env.SERVER_PORT ?? "";
 connectorDb(dbConnectionString);
 
 // AUTH ROUTE
-app.use('/auth', AuthRoute);
+app.use("/auth", AuthRoute);
 // BOOKING ROUTE
-app.use('/booking', BookingRoute);
+app.use("/booking", BookingRoute);
 
 //404 response
 app.use((error: any, res: Response, next: NextFunction) => {
@@ -50,6 +52,7 @@ app.use((error: any, res: Response, next: NextFunction) => {
     next(error);
   }
 });
+
 const port = server_port || 5000;
 app.listen(port, () => {
   console.log(`Application started on ${port}...`);

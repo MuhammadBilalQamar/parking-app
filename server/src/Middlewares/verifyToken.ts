@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import AuthModel from "../Models/Auth";
 
 /**
-
 Verify user token
 @param req
 @param res
