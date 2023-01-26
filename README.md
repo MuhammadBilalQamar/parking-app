@@ -13,6 +13,9 @@ Parking app development repository
    - [ ] http://localhost:3000/  (Client)
    - [ ] http://localhost:5000/  (Server)
 
+## Api Document
+1. You can find the api document in root directory (file name is **apisDocs.txt**)
+
 ## Editor setup
 Setup Visual Studio Code, and add following extensions
 
