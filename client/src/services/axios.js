@@ -1,13 +1,13 @@
-import axios from 'axios';
+import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:5000',
+  baseURL: "http://localhost:5000",
 });
 
 instance.interceptors.request.use(
   (config) => {
-    config.headers['Content-Type'] = 'application/json';
-    config.headers['Authorization'] = localStorage.getItem('parkingAppToken') || '';
+    config.headers["Content-Type"] = "application/json";
+    config.headers["Authorization"] = localStorage.getItem("parkingAppToken") || ""; //JWT for authorization of restricted reuqest
     return config;
   },
   (error) => {

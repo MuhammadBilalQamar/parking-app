@@ -1,0 +1,30 @@
+{
+    "name": "parking-app-dev",
+    "version": "1.0.0",
+    "description": "Parking app development repository",
+    "dependencies": {
+        "concurrently": "^7.6.0"
+    },
+    "devDependencies": {
+        "get-meta-file": "^1.3.4",
+        "loop": "^3.3.4"
+    },
+    "scripts": {
+        "dev-client-install": "cd client && yarn",
+        "dev-server-install": "cd server && yarn",
+        "server": "cd server && npm start",
+        "client": "cd client && npm start",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MuhammadBilalQamar/parking-app.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MuhammadBilalQamar/parking-app/issues"
+    },
+    "homepage": "https://github.com/MuhammadBilalQamar/parking-app#readme"
+}

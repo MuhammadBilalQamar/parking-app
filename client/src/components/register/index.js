@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useNavigate } from "react-router-dom";
 import axios from "./../../services/axios";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -55,8 +56,7 @@ export default function Register() {
     }
     if (!fullName) {
       setFullNameErrorText("Please enter a full name");
-    }
-    else {
+    } else {
       setPasswordErrorText("");
     }
 
@@ -68,14 +68,14 @@ export default function Register() {
       };
       console.log(body);
       // register
-      axios.post("/auth/register", body)
-      .then(response => {
-        navigate("/login");
-      })
-      .catch(error => {
-        setErrorText(error.response.data.message);
-      });
-    
+      axios
+        .post("/auth/register", body)
+        .then((response) => {
+          navigate("/login");
+        })
+        .catch((error) => {
+          setErrorText(error.response.data.message);
+        });
     }
   };
 
@@ -87,9 +87,8 @@ export default function Register() {
           Register
         </Typography>
         <form className={classes.form} onSubmit={onSubmit}>
-
           {/* Full Name text Field */}
-       
+
           <TextField
             variant="outlined"
             margin="normal"

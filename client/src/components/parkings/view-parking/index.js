@@ -57,6 +57,7 @@ export default function ViewParkings() {
     setParkingSpots([]);
     fetchBooking();
   }, []);
+
   const fetchBooking = () => {
     axios
       .get("/booking")

@@ -11,7 +11,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Navbar } from "components";
 import axios from "../../../services/axios";
-import _ from 'lodash';
+import _ from "lodash";
+
 // MUI CUSTOM TABLE CELL STYLING
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,7 +35,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-
 export default function ViewBookings() {
   const [rows, setRows] = useState([]);
   const path = window.location.pathname;
@@ -49,9 +49,16 @@ export default function ViewBookings() {
         console.log("Success:", response.data);
         if (response.data.length > 0) {
           response.data.forEach((booking) => {
-            const timeFrom = new Date(`${booking.date_from} ${booking.time_from}`).getTime();
-            const timeTo = new Date(`${booking.date_to} ${booking.time_to}`).getTime();
-            const durationInMinutes = _.round(_.divide(_.subtract(timeTo, timeFrom), 60000), 2);
+            const timeFrom = new Date(
+              `${booking.date_from} ${booking.time_from}`
+            ).getTime();
+            const timeTo = new Date(
+              `${booking.date_to} ${booking.time_to}`
+            ).getTime();
+            const durationInMinutes = _.round(
+              _.divide(_.subtract(timeTo, timeFrom), 60000),
+              2
+            );
             const durationInHours = _.floor(durationInMinutes / 60);
             const remainingMinutes = _.round(durationInMinutes % 60);
             booking.duration = `${durationInHours} hrs ${remainingMinutes} mins`;
@@ -64,15 +71,12 @@ export default function ViewBookings() {
       });
   };
 
-
-
-
   console.log("rows", rows);
-  
+
   // RENDER COMPONENT
   return (
     <>
-     {path === '/view-bookings' && <Navbar />}
+      {path === "/view-bookings" && <Navbar />}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650, marginTop: 1 }} aria-label="simple table">
           <TableHead>
@@ -102,7 +106,6 @@ export default function ViewBookings() {
                 <TableCell align="right">{row.time_from}</TableCell>
                 <TableCell align="right">{row.time_to}</TableCell>
                 <TableCell align="right">{row.duration}</TableCell>
-             
               </StyledTableRow>
             ))}
           </TableBody>

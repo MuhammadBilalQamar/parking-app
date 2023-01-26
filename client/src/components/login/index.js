@@ -60,18 +60,17 @@ export default function Login() {
         username: username,
         password: password,
       };
-      console.log(body);
       // login
-      axios.post("/auth/login", body)
-      .then(response => {
-        localStorage.setItem("parkingAppToken", response.data.token);
-        localStorage.setItem("parkingAppUser", JSON.stringify(response.data));
-        navigate("/");
-      })
-      .catch(error => {
-        setErrorText(error.response.data.message);
-      });
-    
+      axios
+        .post("/auth/login", body)
+        .then((response) => {
+          localStorage.setItem("parkingAppToken", response.data.token);
+          localStorage.setItem("parkingAppUser", JSON.stringify(response.data));
+          navigate("/");
+        })
+        .catch((error) => {
+          setErrorText(error.response.data.message);
+        });
     }
   };
 

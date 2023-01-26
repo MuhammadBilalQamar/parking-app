@@ -14,9 +14,9 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from "components";
 import axios from "./../../../services/axios";
 const useStyles = makeStyles((theme) => ({
-    form: {
-        marginTop: theme.spacing(8),
-    },
+  form: {
+    marginTop: theme.spacing(8),
+  },
 
   formControl: {
     margin: theme.spacing(1),
@@ -32,8 +32,10 @@ export default function BookParking() {
   const navigate = useNavigate();
   const [area, setArea] = useState("");
   const [spot, setSpot] = useState("");
-  const [timeFrom, setTimeFrom] = useState(new Date().toISOString().slice(0,-5));  
-  const [timeTo, setTimeTo] = useState(new Date().toISOString().slice(0,-5));
+  const [timeFrom, setTimeFrom] = useState(
+    new Date().toISOString().slice(0, -5)
+  );
+  const [timeTo, setTimeTo] = useState(new Date().toISOString().slice(0, -5));
   const [errorText, setErrorText] = React.useState("");
   const path = window.location.pathname;
   const areas = ["Area 1", "Area 2", "Area 3"];
@@ -81,24 +83,23 @@ export default function BookParking() {
       user: JSON.parse(localStorage.getItem("parkingAppUser")).id,
     };
     // Call the API for booking the parking here.
-    axios.post("/booking", body)
-    .then(response => {
-      console.log("Success:", response.data);
-      navigate("/view-parking");
-    })
-    .catch(error => {
-      console.log("error", error.response.data);
-      setErrorText(error.response.data.message);
-      console.error("Error:", error);
-    });
-  
+    axios
+      .post("/booking", body)
+      .then((response) => {
+        console.log("Success:", response.data);
+        navigate("/view-parking");
+      })
+      .catch((error) => {
+        console.log("error", error.response.data);
+        setErrorText(error.response.data.message);
+        console.error("Error:", error);
+      });
   };
 
   return (
     <>
-      {path === '/book-parking' && <Navbar />}
-      <Container component="main" sx={{marginTop: '20px'}}>
-   
+      {path === "/book-parking" && <Navbar />}
+      <Container component="main" sx={{ marginTop: "20px" }}>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={6}>
