@@ -1,0 +1,50 @@
+* Register
+POST : http://localhost:5000/auth/register
+body:
+	{
+	  "name": "Admin User",
+	  "username": "admin@email.com",
+	  "password": "123456"
+	}
+
+
+
+
+* Login
+POST : http://localhost:5000/auth/login
+body:
+	{
+	  "username": "admin@email.com",
+	  "password": "123456"
+	}
+
+
+
+* Booking
+
+- Create Booking
+POST : http://localhost:5000/booking
+{
+  "area": "Area 1",
+  "spot": "Parking Spot 4",
+  "time_from": "24:22:14",
+  "time_to": "24:25:15",
+  "date_from": "2023-01-19",
+  "date_to": "2023-01-19",
+  "user": "63d13d68f3067b3cd4ec9469"
+}
+
+
+- Get All Bookings 
+GET : http://localhost:5000/booking
+
+
+- Get Specific Booking
+GET : http://localhost:5000/booking/:id
+
+- Get Specific User Booking (Records will be filtered on token basis)
+GET : http://localhost:5000/booking/user
+
+
+- Delete Booking
+DELETE : http://localhost:5000/booking/:id
