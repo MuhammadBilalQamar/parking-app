@@ -8,7 +8,8 @@ Parking app development repository
 3. In the root directory run `yarn run dev-client-install` this will install all neccessary dependencies for client side.
 4. In the root directory run `yarn run dev-server-install` this will install all neccessary dependencies for server side. **Please Avoid parallel installation**.
 5. Now In order to run client and server concurrently you need to install concurrently package. run `npm i -D concurrently`.
-6. After that make sure in both client and server directories we will have proper .env files. Run `yarn run dev` that will run both server and client concurrently.
+6. After that make sure in both client and server directories we will have proper .env files(**Note:-** for now I forecefully pushed the .env files in the repo but obiviously we can make it private in future). 
+7. Run `yarn run dev` that will run both server and client concurrently.
    - [ ] http://localhost:3000/  (Client)
    - [ ] http://localhost:5000/  (Server)
 
